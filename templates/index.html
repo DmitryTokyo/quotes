@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite quotes</title>
+
+    <link rel="stylesheet" href="{{url_for ('static', filename='css/mdb.min.css')}}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+  </head>
+  <body>
+    <nav  class="bg-white border-bottom shadow p-3 mb-3">
+      <div class="container">
+        <a class="btn btn-primary" href="{{ url_for('quotes') }}">Add a quote</a>
+      </div>
+    </nav>
+    <br>
+
+    <div class="container theme-showcase border pt-3 shadow-3-strong" role="main">
+
+      <div style="color:#fff; background-color:#1266f1; margin-bottom: 2em; text-align: center;", class="jumbotron">
+        <h1>Favorite Quotes</h1>
+      </div>
+      <!--for loop starts-->
+      {% for result in results %}
+        <div class="bg-warning ps-3">
+          <h2>{{result.author}}</h2>
+        </div>
+        <div class="note note-warning mb-3 ps-3">
+          <p><strong>{{result.quote}}</strong></p>
+        </div>
+      {% endfor %}
+      <!-- for loop ends here..-->
+
+    </div> <!-- /container -->
+    
+  </body>
+</html>
